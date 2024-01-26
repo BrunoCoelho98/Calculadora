@@ -1,0 +1,130 @@
+import { Button, VerticalBox, GridBox , TextEdit, HorizontalBox, LineEdit} from "std-widgets.slint";
+
+export component AppWindow inherits Window {
+    in property <string> result;
+    callback calculate(string);
+
+    GridBox {
+
+        display := LineEdit {
+            
+            height: 60px;
+            colspan: 4;
+            font-size: 20px;
+            read-only: true;
+        }
+        Row {
+            Button {
+                text: "CE";
+                clicked => {
+                    display.text = "";
+                }}
+            Button {
+                text: "(";
+                clicked => {
+                    display.text += "(";
+                }}
+            Button {
+                text: ")";
+                clicked => {
+                    display.text += ")";
+                }}
+            Button {
+                text: "%";
+                clicked => {
+                    display.text += "%";
+                }}
+        }
+
+        Row {
+            Button {
+                text: "7";
+                clicked => {
+                    display.text += "7";
+                }}
+            Button {
+                text: "8";
+                clicked => {
+                    display.text += "8";
+                }}
+            Button {
+                text: "9";
+                clicked => {
+                    display.text += "9";
+                }}
+            Button {
+                text: "/";
+                clicked => {
+                    display.text += "/";
+                }}
+        }
+        Row {
+            Button {
+                text: "4";
+                clicked => {
+                    display.text += "4";
+                }}
+            Button {
+                text: "5";
+                clicked => {
+                    display.text += "5";
+                }}
+            Button {
+                text: "6";
+                clicked => {
+                    display.text += "6";
+                }}
+            Button {
+                text: "X";
+                clicked => {
+                    display.text += "*";
+                }}
+        }
+        Row {
+            Button {
+                text: "1";
+                clicked => {
+                    display.text += "1";
+                }}
+            Button {
+                text: "2";
+                clicked => {
+                    display.text += "2";
+                }}
+            Button {
+                text: "3";
+                clicked => {
+                    display.text += "3";
+                }}
+            Button {
+                text: "-";
+                clicked => {
+                    display.text += "-";
+                }}
+        }
+        Row {
+            Button {
+                text: "0";
+                clicked => {
+                    display.text += "0";
+                }}
+            Button {
+                text: ".";
+                clicked => {
+                    display.text += ".";
+                }}
+            Button {
+                text: "=";
+                clicked => {
+                    calculate(display.text);
+                    display.text = result;
+                }}
+            Button {
+                text: "+";
+                clicked => {
+                    display.text += "+";
+                }}
+        }
+        
+    }
+}
